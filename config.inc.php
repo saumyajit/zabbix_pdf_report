@@ -25,11 +25,11 @@ $showdates = false; // Prepend date and time on items and trends, or leave it ou
 $mygraphs = '#.*#'; // Match all graphs
 
 # zabbix server info(user must have API access)
-$z_server 	= 'https://veus2core0821.jdadelivers.com/zabbix/';
+$z_server 	= 'http://localhost/zabbix/';
 #$z_server 	= 'https://bynpzbxmonpub.jdadelivers.com/zabbix/';
 // $z_server 	= 'https://YourServerHere/zabbix/'; // Replace YourServerHere with either en IP or an FDQN (e.g. zabbix.company.com). Remove the s in https if for some reason you don't use https yet. Or better yet, get Let's Encrypt installed and use https!
-$z_user		= 'report_user';
-$z_pass		= 'ts]7(vmQn^.2Gp4r'; // Update this. Default PW for Admin is zabbix
+$z_user		= 'Admin';
+$z_pass		= 'zabbix'; // Update this. Default PW for Admin is zabbix
 
 
 # Temporary directory for storing pdf data and graphs - must exist
@@ -43,11 +43,11 @@ $pdf_report_url	= "./reports";
 $paper_format	= 'A4'; // formats supported: 4A0, 2A0, A0 -> A10, B0 -> B10, C0 -> C10, RA0 -> RA4, SRA0 -> SRA4, LETTER, LEGAL, EXECUTIVE, FOLIO
 $paper_orientation = 'portrait'; // formats supported: portrait / landscape
 # time zone - see http://php.net/manual/en/timezones.php
-$timezone	= 'Etc/UTC';
+$timezone	= 'Asia/Kolkata';
 # Logo used in PDF - may be empty
 # TODO: Specify image size!
 $pdf_logo	= './images/general/zabbix.png';
-$company_name   = 'Blue Yonder';
+$company_name   = 'WetechieLabs';
 //$hide_company_name = false; // If you don't what the red bar with company name in your report
 $hide_company_name = true; // If you don't what the red bar with company name in your report
 
