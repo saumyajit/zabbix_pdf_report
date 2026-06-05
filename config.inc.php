@@ -5,10 +5,12 @@ $user_login=0; // If $user_login is 0, use credentials below and don't prompt fo
 $allow_localhost=1; // If a request is made from 127.0.0.1, use credentials below in createpdf.php
 
 $version	= '1.2.4';
-$zabbix_version = 5.0 ; // Some things have changed in Zabbix 5.0 that we need to take case of. Use 5.0 for version 5
+$zabbix_version = 7.0 ; // Some things have changed in Zabbix 5.0 that we need to take case of. Use 5.0 for version 5
 
 // What items would you like to see in the report? Things that do not match are excluded automatically.
-$items = array('system information'=>'string','uptime'=>'seconds', 'boot time'=>'datetime', 'total memory'=>'bytes', 'available memory'=>'bytes', 'Free disk space'=>'number', 'Free swap space in %'=>'number', 'version of zabbix_agent'=>'string', 'services'=>'string', 'update'=>'number','certificate'=>'string','advanced ntp'=>'string','Interface speed'=>'bits','Operational status'=>'updown','Alias of interface'=>'string','certificate'=>'string');
+//$items = array('system information'=>'string','system uptime'=>'seconds', 'boot time'=>'datetime', 'total memory'=>'bytes', 'available memory'=>'bytes', 'Free disk space'=>'number', 'Free swap space in %'=>'number', 'version of zabbix_agent'=>'string', 'services'=>'string', 'update'=>'number','certificate'=>'string','advanced ntp'=>'string','Interface speed'=>'bits','Operational status'=>'updown','Alias of interface'=>'string','certificate'=>'string');
+
+$items = array('system information'=>'string','uptime'=>'seconds', 'boot time'=>'datetime', 'CPU Utilization %'=>'string', 'Total memory'=>'bytes', 'Memory Utilization %'=>'string', 'Total disk space on'=>'bytes', 'Used disk space on'=>'string', 'Total disk space on /'=>'bytes', 'Used disk space on /'=>'string', 'version of zabbix_agent'=>'string', 'services'=>'string', 'update'=>'number','certificate'=>'string','advanced ntp'=>'string','Interface speed'=>'bits','Operational status'=>'updown','Alias of interface'=>'string','certificate'=>'string');
 
 // Which items would you like to see overall statistics for over the selected period? Presently only avg is shown, but min and max could easily be added.
 $trends = array('ICMP ping'=>'updown','ICMP loss'=>'number', 'ICMP response'=>'ms', 'BatteryCharge'=>'number', 'Battery capacity'=>'number', 'voltage'=>'number', 'output power'=>'number', 'CPU Idle Time'=>'number', '15 min average'=>'number', 'Temp'=>'number', 'Watt'=>'number', 'uptime'=>'seconds','transactions per second'=>'number');
@@ -23,10 +25,11 @@ $showdates = false; // Prepend date and time on items and trends, or leave it ou
 $mygraphs = '#.*#'; // Match all graphs
 
 # zabbix server info(user must have API access)
-$z_server 	= 'http://localhost/zabbix/';
+$z_server 	= 'https://veus2core0821.jdadelivers.com/zabbix/';
+#$z_server 	= 'https://bynpzbxmonpub.jdadelivers.com/zabbix/';
 // $z_server 	= 'https://YourServerHere/zabbix/'; // Replace YourServerHere with either en IP or an FDQN (e.g. zabbix.company.com). Remove the s in https if for some reason you don't use https yet. Or better yet, get Let's Encrypt installed and use https!
-$z_user		= 'Admin';
-$z_pass		= 'zabbix'; // Update this. Default PW for Admin is zabbix
+$z_user		= 'report_user';
+$z_pass		= 'ts]7(vmQn^.2Gp4r'; // Update this. Default PW for Admin is zabbix
 
 
 # Temporary directory for storing pdf data and graphs - must exist
@@ -40,11 +43,11 @@ $pdf_report_url	= "./reports";
 $paper_format	= 'A4'; // formats supported: 4A0, 2A0, A0 -> A10, B0 -> B10, C0 -> C10, RA0 -> RA4, SRA0 -> SRA4, LETTER, LEGAL, EXECUTIVE, FOLIO
 $paper_orientation = 'portrait'; // formats supported: portrait / landscape
 # time zone - see http://php.net/manual/en/timezones.php
-$timezone	= 'Asia/Kolkata';
+$timezone	= 'Etc/UTC';
 # Logo used in PDF - may be empty
 # TODO: Specify image size!
 $pdf_logo	= './images/general/zabbix.png';
-$company_name   = 'WetechieLabs';
+$company_name   = 'Blue Yonder';
 //$hide_company_name = false; // If you don't what the red bar with company name in your report
 $hide_company_name = true; // If you don't what the red bar with company name in your report
 
